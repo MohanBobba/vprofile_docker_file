@@ -3,15 +3,14 @@ FROM centos
   3 RUN yum install java-1.8.0 wget unzip -y
   4 RUN mkdir -p /opt/tomcat
   5 WORKDIR /opt/tomcat
-  6 RUN wget http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.43/bin/apache-tt
-    omcat-8.5.43.zip
-  7 RUN unzip apache-tomcat-8.5.43.zip
+  6 RUN wget http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.45/bin/apache-tomcat-8.5.45.zip
+  7 RUN unzip apache-tomcat-8.5.45.zip
   8 RUN wget --user=admin --password=admin123 http://52.91.164.32:8081/nexus/conn
     tent/repositories/releases/com/visualpathit/vprofile/v1/vprofile-v1.war
-  9 RUN cp /opt/tomcat/vprofile-v1.war /opt/tomcat/apache-tomcat-8.5.43/webapps//
+  9 RUN cp /opt/tomcat/vprofile-v1.war /opt/tomcat/apache-tomcat-8.5.45/webapps//
     vprofile-v1.war
- 10 WORKDIR /opt/tomcat/apache-tomcat-8.5.43/bin
+ 10 WORKDIR /opt/tomcat/apache-tomcat-8.5.45/bin
  11 RUN chmod 777 *
  12 CMD ./startup.sh
- 13 CMD ["/opt/tomcat/apache-tomcat-8.5.43/bin/catalina.sh", "run"]
+ 13 CMD ["/opt/tomcat/apache-tomcat-8.5.45/bin/catalina.sh", "run"]
  14 EXPOSE 8080
